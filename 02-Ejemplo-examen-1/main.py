@@ -9,7 +9,7 @@ def menu():
     print("4. Retirar")
     print("5. Mostrar saldo")
     print("6. Salir")
-
+    print("error")
 def main() -> None:
     cuentas = {}
 
