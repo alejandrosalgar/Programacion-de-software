@@ -64,7 +64,7 @@ export class ProductoListComponent implements OnInit {
             id: '1',
             nombre: 'Laptop Dell Inspiron',
             descripcion: 'Laptop para trabajo y entretenimiento',
-            precio: 2500000,
+            precio: 2500005550,
             stock: 15,
             categoria_id: '1',
             usuario_id: '1',

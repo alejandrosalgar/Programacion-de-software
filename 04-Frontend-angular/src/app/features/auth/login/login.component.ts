@@ -393,10 +393,9 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // Si ya está autenticado, redirigir al dashboard
-    if (this.authService.isAuthenticated()) {
-      this.router.navigate(['/dashboard']);
-    }
+    // No redirigir automáticamente - dejar que el usuario vea el login
+    // Si hay un token válido, el AuthGuard permitirá el acceso a rutas protegidas
+    // Si el token es inválido, el AuthGuard redirigirá de vuelta al login
   }
 
   verificarBackend(): void {
