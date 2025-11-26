@@ -1,0 +1,23 @@
+[run]
+source = .
+omit = 
+    tests/*
+    migrations/*
+    __pycache__/*
+    venv/*
+    *.pyc
+    alembic.ini
+    setup_*.py
+    verificar_*.py
+    recrear_*.py
+    crear_*.py
+    sistema_gestion.py
+
+[report]
+precision = 2
+show_missing = True
+skip_covered = False
+
+[html]
+directory = htmlcov
+

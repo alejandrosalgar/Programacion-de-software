@@ -17,6 +17,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/usuarios', title: 'Usuarios',  icon:'users_single-02', class: '', roles: ['admin'] },
     { path: '/productos', title: 'Productos',  icon:'shopping_box', class: '' },
     { path: '/pruebas', title: 'Pruebas',  icon:'shopping_box', class: '' },
+    { path: '/ventas', title: 'ventas',  icon:'shopping_box', class: '' },
     { path: '/notifications', title: 'Notificaciones',  icon:'ui-1_bell-53', class: '', roles: ['admin'] },
     { path: '/upgrade', title: 'Configuración',  icon:'objects_spaceship', class: 'active active-pro', roles: ['admin'] }
 ];

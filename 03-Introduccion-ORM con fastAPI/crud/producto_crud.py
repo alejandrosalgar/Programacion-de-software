@@ -69,7 +69,7 @@ class ProductoCRUD:
         from entities.usuario import Usuario
 
         usuario = (
-            self.db.query(Usuario).filter(Usuario.id_usuario == usuario_id).first()
+            self.db.query(Usuario).filter(Usuario.id == usuario_id).first()
         )
         if not usuario:
             raise ValueError("El usuario especificado no existe")
@@ -217,7 +217,7 @@ class ProductoCRUD:
 
             usuario = (
                 self.db.query(Usuario)
-                .filter(Usuario.id_usuario == kwargs["usuario_id"])
+                .filter(Usuario.id == kwargs["usuario_id"])
                 .first()
             )
             if not usuario:
@@ -231,7 +231,7 @@ class ProductoCRUD:
                 raise ValueError(
                     "No se encontró un usuario administrador para editar el producto"
                 )
-            id_usuario_edita = admin.id_usuario
+            id_usuario_edita = admin.id
 
         producto.id_usuario_edita = id_usuario_edita
 
