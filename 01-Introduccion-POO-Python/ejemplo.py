@@ -1,15 +1,23 @@
 class Vehiculo:
     def __init__(self, marca: str, modelo: str, año: int):
+
         self.marca = marca
         self.modelo = modelo
         self.año = año
-        self.__kilometraje = 0  # Atributo privado
+        self.__kilometraje = 0
         self.disponible = True
 
-    def obtener_info(self) -> str:
+    def obtener_info(self):
         return f"{self.marca} {self.modelo} ({self.año})"
 
     def alquilar(self) -> str:
+        """
+        Args:
+            self: El objeto Vehiculo
+        Returns:
+            str: Un mensaje indicando si el vehiculo ha sido alquilado o no
+
+        """
         if self.disponible:
             self.disponible = False
             return f"{self.obtener_info()} ha sido alquilado"
@@ -17,6 +25,12 @@ class Vehiculo:
             return f"{self.obtener_info()} no está disponible"
 
     def devolver(self, km_recorridos: int) -> str:
+        """
+        Args:
+            km_recorridos: La cantidad de kilometros recorridos
+        Returns:
+            str: Un mensaje indicando si el vehiculo ha sido devuelto o no
+        """
         if not self.disponible:
             self.disponible = True
             self.__kilometraje += km_recorridos
@@ -24,21 +38,21 @@ class Vehiculo:
         else:
             return f"{self.obtener_info()} ya está disponible"
 
-    def mostrar_estado(self):
+    def mostrar_estado(self) -> str:
         estado = "Disponible" if self.disponible else "Alquilado"
         return f"{self.obtener_info()} - Estado: {estado} - KM: {self.__kilometraje}"
 
 
 class Carro(Vehiculo):
-    def __init__(self, marca, modelo, año, num_puertas):
-        super().__init__(marca, modelo, año)
+    def __init__(self, marca: str, modelo: str, año: int, num_puertas: int):
+        super().__init__(marca=marca, modelo=modelo, año=año)
         self.num_puertas = num_puertas
         self.tipo_combustible = "Gasolina"
 
-    def obtener_info(self):
+    def obtener_info(self) -> str:
         return f"Carro: {self.marca} {self.modelo} ({self.año}) - {self.num_puertas} puertas"
 
-    def cargar_combustible(self):
+    def cargar_combustible(self) -> str:
         return f"{self.obtener_info()} está cargando {self.tipo_combustible}"
 
 
@@ -100,7 +114,6 @@ print("\n" + "=" * 50)
 print("\nEstado después de alquileres:")
 for vehiculo in flota:
     print(f"  {vehiculo.mostrar_estado()}")
-
 
 print("\n" + "=" * 50)
 

@@ -1,5 +1,6 @@
-from src.cuenta_ahorro import CuentaAhorro
-from src.cuenta_corriente import CuentaCorriente
+from src.entities.cuenta_ahorro import CuentaAhorro
+from src.entities.cuenta_corriente import CuentaCorriente
+
 
 def menu():
     print("\n--- BANCO ---")
@@ -10,12 +11,15 @@ def menu():
     print("5. Mostrar saldo")
     print("6. Salir")
 
+
 def main() -> None:
     cuentas = {}
-
     while True:
         menu()
         opcion = input("Seleccione una opción: ")
+        if opcion not in ["1", "2", "3", "4", "5", "6"]:
+            print("Opción no válida.")
+            continue
 
         if opcion == "1":
             numero = input("Número de cuenta: ")
@@ -47,6 +51,7 @@ def main() -> None:
 
         else:
             print("Opción no válida.")
+
 
 if __name__ == "__main__":
     main()
