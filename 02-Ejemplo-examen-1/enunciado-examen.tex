@@ -1,0 +1,137 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{xcolor}
+
+\geometry{margin=2.5cm}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5em}
+
+\titleformat{\section}{\normalfont\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalfont\normalsize\bfseries}{\thesubsection}{0.5em}{}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small Programación de Software}
+\fancyhead[R]{\small Examen - Entrega 19--26 Feb 2025}
+\fancyfoot[C]{\thepage}
+
+\hypersetup{colorlinks=true, linkcolor=blue, urlcolor=blue}
+
+\begin{document}
+
+\begin{center}
+  \textbf{\large INSTITUCIÓN}\\[0.3em]
+  \textbf{\large Programación de Software}\\[0.8em]
+  \textbf{\large Enunciado del examen}\\[0.5em]
+  \rule{\textwidth}{0.4pt}\\[0.5em]
+  POO con Python, PEP8 y flujo Git (ramas protegidas y \texttt{feat})
+\end{center}
+
+\vspace{1em}
+
+\section{Objetivo}
+
+Desarrollar un proyecto en Python aplicando \textbf{Programación Orientada a Objetos} (POO), siguiendo las buenas prácticas \textbf{PEP~8} con formateador \textbf{Black} obligatorio, y utilizando \textbf{Git} con un flujo basado en ramas protegidas \texttt{dev}, \texttt{qa} y \texttt{prod} (la rama \texttt{main} no se usa ni se protege) y ramas de aporte \texttt{feat/...}.
+
+\section{Fechas y modalidad}
+
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Inicio de entrega:} miércoles 19 de febrero de 2025.
+  \item \textbf{Fecha límite:} jueves 26 de febrero de 2025, \textbf{a las 12:00 del mediodía}. Después de esa hora no se tendrán en cuenta nuevos \texttt{push} ni commits; solo se evaluará el estado del repositorio hasta ese momento.
+  \item \textbf{Nota:} El jueves 26 de febrero \textbf{no habrá clase}.
+  \item \textbf{Entrega formal:} es \textbf{obligatorio} registrar en el archivo Excel que el docente comparte en el equipo/grupo de Teams, junto al nombre de cada estudiante: la \textbf{URL del repositorio GitHub} y el \textbf{nombre de la cuenta de GitHub}. Sin la URL y el usuario de GitHub en el Excel no se considera entregado.
+\end{itemize}
+
+\section{Requisitos técnicos}
+
+\subsection{Programación Orientada a Objetos (Python)}
+\begin{itemize}[leftmargin=*]
+  \item Uso de clases con encapsulamiento (atributos privados/protegidos y \texttt{@property} donde corresponda).
+  \item Herencia y reutilización de código (clase base y subclases).
+  \item Métodos con responsabilidad clara y tipado con type hints (\texttt{-> None}, \texttt{-> str}, etc.).
+  \item Estructura modular (por ejemplo \texttt{src/entities/}, módulos reutilizables).
+\end{itemize}
+
+\subsection{Estilo y buenas prácticas (PEP~8) y Black}
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Uso obligatorio del formateador \texttt{black}:} el código debe estar formateado con Black para garantizar el cumplimiento de PEP~8. Se recomienda ejecutar \texttt{black .} en la raíz del proyecto antes de cada commit.
+  \item Nombres en \texttt{snake\_case} para funciones y variables; \texttt{PascalCase} para clases.
+  \item Líneas según convención Black (máximo 88 caracteres por defecto).
+  \item Docstrings en módulos y funciones relevantes.
+  \item Sin \texttt{try/except} innecesarios; validación explícita de entradas cuando se indique.
+\end{itemize}
+
+\subsection{Git: ramas protegidas, flujo y nombre del repositorio}
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Nombre del repositorio:} debe comenzar por \texttt{backend} y luego el nombre del proyecto (ej.: \texttt{backend-banco}, \texttt{backend-sistema-inventario}).
+  \item \textbf{Rama \texttt{main}:} \textbf{no} va protegida y \textbf{no} se utiliza en este flujo; el trabajo se hace solo sobre \texttt{dev}, \texttt{qa} y \texttt{prod}.
+  \item \textbf{Ramas protegidas (las que sí se usan):}
+    \begin{itemize}
+      \item \texttt{dev}: desarrollo integrado.
+      \item \texttt{qa}: ambiente de pruebas.
+      \item \texttt{prod}: producción (o reflejo de entrega final).
+    \end{itemize}
+  \item \textbf{Ramas de aporte:} cada estudiante debe trabajar en \textbf{ramas \texttt{feat/cambio-que-hizo}}, es decir, el nombre de la rama describe el cambio realizado. Por ejemplo:
+    \begin{itemize}
+      \item \texttt{feat/clase-cuenta-ahorro}
+      \item \texttt{feat/menu-depositos}
+      \item Una rama \texttt{feat/<descripcion-del-cambio>} por cada aporte o funcionalidad.
+    \end{itemize}
+  \item \textbf{Flujo de integración:} los Pull Requests (PR) van desde \texttt{feat/...} hacia cada rama protegida, es decir: \texttt{feat} $\rightarrow$ \texttt{dev}, \texttt{feat} $\rightarrow$ \texttt{qa} y \texttt{feat} $\rightarrow$ \texttt{prod}, según corresponda en cada caso.
+  \item \textbf{Requisitos de cada PR:} todo Pull Request debe incluir:
+    \begin{itemize}
+      \item \textbf{Descripción} del cambio o funcionalidad.
+      \item \textbf{Asignación} (assignee).
+      \item \textbf{Revisores} (reviewers).
+      \item \textbf{Labels} (etiquetas).
+    \end{itemize}
+  \item \textbf{Evaluación de conversaciones:} se calificarán las conversaciones y revisiones que se realicen en la rama \texttt{dev} (comentarios en PR, respuestas, mejoras sugeridas).
+  \item Commits con mensajes claros y en español o inglés (ej.: \textit{``Añade clase CuentaAhorro con interés y meta''}).
+\end{itemize}
+
+\section{Criterios de evaluación y ponderación}
+
+La calificación se distribuye de la siguiente forma:
+
+\begin{center}
+  \begin{tabular}{|l|c|}
+    \hline
+    \textbf{Criterio} & \textbf{Ponderación} \\
+    \hline
+    Programación Orientada a Objetos (POO) & 20\,\% \\
+    \hline
+    Uso de Git (ramas protegidas, \texttt{feat}, commits, flujo) & 40\,\% \\
+    \hline
+    Estilo PEP~8 y calidad de código & 20\,\% \\
+    \hline
+    Entrega, documentación y funcionamiento del programa & 20\,\% \\
+    \hline
+    \textbf{Total} & \textbf{100\,\%} \\
+    \hline
+  \end{tabular}
+\end{center}
+
+\subsection{Detalle por criterio}
+\begin{itemize}[leftmargin=*]
+  \item \textbf{POO (20\,\%):} Diseño de clases, herencia, encapsulamiento, type hints y organización en módulos.
+  \item \textbf{Git (40\,\%):} Repositorio con nombre \texttt{backend-<proyecto>}; ramas \texttt{dev}, \texttt{qa}, \texttt{prod}; flujo \texttt{feat} $\rightarrow$ \texttt{dev}/\texttt{qa}/\texttt{prod}; PR con descripción, asignación, revisores y labels; conversaciones y revisiones en \texttt{dev}; commits coherentes y mensajes descriptivos.
+  \item \textbf{PEP~8 y calidad (20\,\%):} Uso obligatorio de Black, cumplimiento de convenciones de estilo, nombres claros, docstrings y código legible.
+  \item \textbf{Entrega y funcionamiento (20\,\%):} URL del repositorio y nombre de cuenta GitHub registrados en el Excel del equipo de Teams antes del cierre; repositorio accesible; \texttt{README} o instrucciones básicas; programa que ejecute según lo pedido.
+\end{itemize}
+
+\section{Referencia de ejemplo}
+
+Se puede tomar como referencia el proyecto de la carpeta \texttt{02-Ejemplo-examen-1}: clases \texttt{Cuenta}, \texttt{CuentaAhorro} y \texttt{CuentaCorriente}, menú en \texttt{main.py}, validaciones sin \texttt{try/except} y estructura \texttt{src/entities/}. El enunciado concreto del problema a implementar (dominio del negocio) puede ser indicado por el docente de forma adicional.
+
+\vspace{0.5em}
+\hrule
+\vspace{0.3em}
+\small
+\textit{Documento generado para el curso de Programación de Software. Fechas y porcentajes aplicables al periodo indicado.}
+\end{document}
