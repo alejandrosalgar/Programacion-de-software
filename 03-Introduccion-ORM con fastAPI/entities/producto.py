@@ -19,6 +19,7 @@ class Producto(Base):
     descripcion = Column(Text, nullable=True)
     precio = Column(Numeric(10, 2), nullable=False)
     stock = Column(Integer, default=0)
+    elimado = Column(boolean, default=False)
     fecha_creacion = Column(DateTime(timezone=True), server_default=func.now())
     fecha_edicion = Column(DateTime(timezone=True), onupdate=func.now())
 

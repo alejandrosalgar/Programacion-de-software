@@ -170,6 +170,7 @@ producto = db.query(Producto).filter(Producto.id_producto == id).first()
 if producto:
     producto.precio = 799.99
     producto.stock = 5
+    db.update()
     db.commit()
 ```
 
